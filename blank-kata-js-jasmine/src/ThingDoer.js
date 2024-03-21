@@ -1,4 +1,4 @@
-// Tests are in TemplateTest.spec.js
+// Tests are in spec/TemplateTest.spec.js
 class ThingDoer {
     constructor() {
     }
