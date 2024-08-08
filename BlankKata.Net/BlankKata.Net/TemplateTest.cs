@@ -30,37 +30,6 @@ public class Tests
     }
 
     [Test]
-    public void First_line_of_any_verse()
-    {
-        // Arrange
-        var song = new ChristmasSong();
-        
-        // Act
-        String result = song.FirstLineOf(4);
-        
-        // Assert
-        var expected = 
-            @"On the fourth day of Christmas";
-        Assert.That(result, Is.EqualTo(expected));
-    }
-
-    [Test]
-    public void Header_of_first_verse()
-    {
-        // Arrange
-        var song = new ChristmasSong();
-        
-        // Act
-        String result = song.HeaderOf(1);
-        
-        // Assert
-        var expected = 
-            @"On the first day of Christmas
-My true love sent to me:";
-        Assert.That(result, Is.EqualTo(expected));
-    }
-
-    [Test]
     public void Header_of_any_verse()
     {
         // Arrange
