@@ -7,7 +7,7 @@ namespace BlankKata.Net;
  * 
  * x First line of first verse
  * x First line of second verse
- * First line of any verse
+ * x First line of any verse
  * First two lines of first verse
  * First two lines of second verse
  * First two lines of any verse
@@ -30,36 +30,6 @@ public class Tests
     }
 
     [Test]
-    public void First_line_of_first_verse()
-    {
-        // Arrange
-        var song = new ChristmasSong();
-        
-        // Act
-        String result = song.FirstLineOf(1);
-        
-        // Assert
-        var expected = 
-            @"On the first day of Christmas";
-        Assert.That(result, Is.EqualTo(expected));
-    }
-
-    [Test]
-    public void First_line_of_second_verse()
-    {
-        // Arrange
-        var song = new ChristmasSong();
-        
-        // Act
-        String result = song.FirstLineOf(2);
-        
-        // Assert
-        var expected = 
-            @"On the second day of Christmas";
-        Assert.That(result, Is.EqualTo(expected));
-    }
-
-    [Test]
     public void First_line_of_any_verse()
     {
         // Arrange
@@ -71,6 +41,22 @@ public class Tests
         // Assert
         var expected = 
             @"On the fourth day of Christmas";
+        Assert.That(result, Is.EqualTo(expected));
+    }
+
+    [Test]
+    public void Header_of_first_verse()
+    {
+        // Arrange
+        var song = new ChristmasSong();
+        
+        // Act
+        String result = song.HeaderOf(1);
+        
+        // Assert
+        var expected = 
+            @"On the first day of Christmas
+My true love sent to me:";
         Assert.That(result, Is.EqualTo(expected));
     }
 }
@@ -95,5 +81,10 @@ public class ChristmasSong
             "twelfth",
         };
         return $"On the {days[verseNumber - 1]} day of Christmas";
+    }
+
+    public string HeaderOf(int verseNumber)
+    {
+        return FirstLineOf(verseNumber) + "\nMy true love sent to me:";
     }
 }
