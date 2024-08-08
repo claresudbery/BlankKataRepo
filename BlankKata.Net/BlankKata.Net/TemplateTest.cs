@@ -58,17 +58,42 @@ public class Tests
             @"On the second day of Christmas";
         Assert.That(result, Is.EqualTo(expected));
     }
+
+    [Test]
+    public void First_line_of_any_verse()
+    {
+        // Arrange
+        var song = new ChristmasSong();
+        
+        // Act
+        String result = song.FirstLineOf(4);
+        
+        // Assert
+        var expected = 
+            @"On the fourth day of Christmas";
+        Assert.That(result, Is.EqualTo(expected));
+    }
 }
 
 public class ChristmasSong
 {   
     public string FirstLineOf(int verseNumber)
     {
-        if (verseNumber == 2)
+        List<string> days = new List<string>
         {
-            return "On the second day of Christmas";
-        }
-
-        return "On the first day of Christmas";
+            "first",
+            "second",
+            "third",
+            "fourth",
+            "fifth",
+            "sixth",
+            "seventh",
+            "eighth",
+            "ninth",
+            "tenth",
+            "eleventh",
+            "twelfth",
+        };
+        return $"On the {days[verseNumber - 1]} day of Christmas";
     }
 }
